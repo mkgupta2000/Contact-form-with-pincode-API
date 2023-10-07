@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: sans-serif;
+  }
+  
+  /**
+  * ! style rules for content section
+  **/
+  
+  /**
+  * ! style rules for form section
+  **/
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  form {
+    padding: 20px;
+    border: 1px solid;
+    border-radius: 25px;
+  }
+  
+  /**
+  * ! style rules for form icons
+  **/
+  
+  .error {
+    font-size: 14.5px;
+    margin-top: 5px;
+    color: red;
+  }
+  
+  /**
+  * ! style rules for button 
+  **/
+  
+  button {
+    margin-top: 15px;
+    width: 100%;
+    height: 45px;
+  }
+  
+  /**
+  * ! Media Queries are here
+  **/
+  
+  @media (max-width: 900px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    form,
+    .content {
+      width: 100%;
+    }
+  
+    .btn {
+      flex-direction: column;
+    }
+    .image {
+      height: 70vh;
+    }
+  }
+  
+  @media (max-width: 425px) {
+    form {
+      padding: 20px;
+    }
+  }
+  
+  .fa-2xl {
+    font-size: 2em;
+    line-height: 0.03125em;
+    vertical-align: -0.1875em;
+    margin-left: 110px;
+    margin-bottom: 25px;
+  }
+  
+  .modal-box {
+    color: #262626;
+    font: 16px sans-serif;
+    background: white;
+    border-radius: 25px;
+  }
+  
+  #modalContent {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .mt-4 {
+    margin-top: 1rem;
+    margin-left: 30px;
+    margin-bottom: 17px;
+    width: 240px;
+  }
+  .text-xl {
+    font-size: 1.25rem;
+    margin-left: 7px;
+    font-size: 1.25rem;
+    height: 40px;
+    line-height: 2.75rem !important;
+    color: white;
+  }
+  .bg-blue-500 {
+    background-color: rgb(18, 18, 88);
+  }
+  .bg-blue-500 {
+    --bg-opacity: 1;
+    background-color: #4299e1;
+    background-color: rgba(66, 153, 225, var(--bg-opacity));
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+  }
+  

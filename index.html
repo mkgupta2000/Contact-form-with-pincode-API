@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api use</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="jquery.js"></script>
+</head>
+<body>
+    <div class="center">
+
+        <form id="applicationForm" class="w-full max-w-lg" method="POST" enctype="multipart/form-data">
+            
+          
+            <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full px-3"><label for="name"
+                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Name:</label>
+                    <input type="text"
+                        class="validate-input appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        name="name" id="name">
+                        <div class="error-message" id="name-error"></div>
+                    
+                </div>
+            </div>
+            <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full px-3"><label for="profession"
+                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Profession </label>
+                    <input type="text"
+                        class="validate-input appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        name="profession" id="profession">
+                        <div class="error-message" id="profession-error"></div>
+                    
+                </div>
+            </div>
+            <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full px-3"><label for="education"
+                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Education</label>
+                    <input type="text"
+                        class="validate-input appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        name="education" id="education">
+                        <div class="error-message" id="education-error"></div>
+                    
+                </div>
+            </div>
+            <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full px-3"><label for="currentcompany"
+                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Current Company</label>
+                    <input type="text"
+                        class="validate-input appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        name="currentcompany" id="currentcompany">
+                        <div class="error-message" id="currentcompany-error"></div>
+                    
+                </div>
+            </div>
+
+
+            <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0"><label for="address"
+                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Address
+                        </label>
+                    <input type="text"
+                        class="validate-input appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                        name="address" id="address">
+                    
+                </div>
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label for="pincode" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Pincode</label>
+                    <input type="number" class="validate-input appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="pincode" id="pincode">
+                </div>
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label for="city" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">City</label>
+                    <input type="text" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="city" id="city" readonly>
+                </div>
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label for="state" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">State</label>
+                    <input type="text" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="state" id="state" readonly>
+                </div>
+                </div>
+
+                
+        
+           
+                
+
+                <button type="submit"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+                    id="submit">Submit</button>
+                  
+            </div>
+        </form>
+    </div>
+    
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+<script> 
+  
+ // jQuery document ready function
+$(document).ready(function () {
+
+    // Event listener for pincode input change
+    $("#pincode").on("input", function () {
+        // Clear previous error messages
+        $(".error-message").text("");
+
+        // Get the pincode value
+        var pincode = $(this).val().trim();
+
+        // Check if pincode is filled and has a valid length (e.g., 6 digits for Indian pincode)
+        if (pincode.length === 6) {
+            // Make an AJAX request to the API to get city and state information
+            $.ajax({
+                url: "https://api.postalpincode.in/pincode/" + pincode,
+                type: "GET",
+                dataType: "json",
+                success: function (response) {
+                    if (Array.isArray(response) && response.length > 0 && response[0].Status === "Success") {
+                        // Extract city and state from the API response
+                        var city = response[0].PostOffice[0].District;
+                        var state = response[0].PostOffice[0].State;
+
+                        // Autofill the city and state fields
+                        $("#city").val(city);
+                        $("#state").val(state);
+                    } else {
+                        // Handle API error, if needed
+                        $(".error-message").text("Error fetching location data.");
+                    }
+                },
+                error: function () {
+                    // Handle AJAX error, if needed
+                    $(".error-message").text("Error fetching location data.");
+                }
+            });
+        }
+    });
+    // Event listener for form submission
+    $("#applicationForm").submit(function (event) {
+        // Clear previous error messages and border styles
+        $(".validate-input").removeClass("border-red-500");
+        $(".error-message").text("");
+        
+        // Validate each input field
+        var isValid = true;
+        $(".validate-input").each(function () {
+            if ($(this).val().trim() === "") {
+                $(this).addClass("border-red-500");
+                isValid = false;
+            }
+        });
+
+        
+        // Prevent form submission if there are errors
+        if (!isValid) {
+            $(".error-message").text("Please fill in all required fields.");
+            event.preventDefault();
+        }
+    });
+});
+
+
+
+    </script>
+
+
+</html>
